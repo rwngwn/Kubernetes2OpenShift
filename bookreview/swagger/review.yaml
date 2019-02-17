@@ -1,0 +1,23 @@
+swagger: "2.0"
+info:
+  title: "Book Review"
+  version: "1.0"
+basePath: /v1
+paths:
+  /review/{name}:
+    get:
+      operationId: app.get_review
+      description: Returns a int representing book review.
+      parameters:
+      - name: name
+        in: path
+        type: string
+        required: true
+        description: The name of the book to review.
+      responses:
+        200:
+          description: Returns the review
+          schema:
+            type: integer
+        400:
+          description: "Invalid book name specified"
