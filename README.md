@@ -32,11 +32,11 @@ To create an *application*, you must first create a new *project*, which will co
 1.  From your browser, visit the OpenShift web console at *https://<MASTER_IP>:8443*. The web site, uses a self-signed certificate,
 so if prompted, continue and ignore the browser warning.
 
-![](./img/image3.jpg)
+![](./img/image3.png)
 
 1.  Log in using your username and password.
 
-![](./img/image4.jpg) 
+![](./img/image4.png) 
 
 1.  To create a new project, click on blue *Create Project* button.
 
@@ -46,7 +46,7 @@ so if prompted, continue and ignore the browser warning.
 
 1.  Click on the project name in right column and examine your fresh project.
 
-![](./img/image5.jpg)
+![](./img/image5.png)
 
 
 CHALLENGE 2: Create and manage Applications
@@ -89,7 +89,7 @@ oc new-app https://github.com/$USER/Kubernetes2OpenShift --context-dir=bookshop 
 
 When build is finished it should look like:
 
-![](./img/image10.jpg)
+![](./img/image10.png)
 
 OpenShift leverages the Kubernetes concept of a pod, which is one or more containers deployed together on one host. A pod is the smallest compute unit that can be defined, deployed, and managed.
 
@@ -108,16 +108,16 @@ oc expose svc/bookshop
 
 1. From the overview page, click the web address for the application in the upper right corner. Verify that the web application is up and available.
 
-![](./img/image11.jpg)
+![](./img/image11.png)
 
 1.  Return to the *OpenShift* admin console. Browse to the project's overview page, and test scaling out and in your application by increasing or decreasing the number of *pods*, using the up and down arrow signs on the web console.
 Scale out the app into 3 pods and watch the progress.
 
-![](./img/image12.jpg)
+![](./img/image12.png)
     
 1.  Browse to Applications -> Pods, and make sure 3 pods serving the same application are now up and running.
 
-![](./img/image13.jpg)
+![](./img/image13.png)
 
 1. Scale Application back to 1 Pod
     
@@ -137,7 +137,7 @@ To set up a *webhook* for your application:
 
 1.  Click next to GitHub webhook URL to copy your *webhook* payload URL.
 
-![](./img/image14.jpg)
+![](./img/image14.png)
  
 1.  Navigate to your forked repository on GitHub, then click Settings.
 
@@ -149,7 +149,7 @@ To set up a *webhook* for your application:
 
 1.  Disable SSL verification and click Add webhook to save.
 
-![](./img/image15.jpg)
+![](./img/image15.png)
 
 1. Keep all the other parameters with the default values.
 
@@ -157,7 +157,7 @@ GitHub will now attempt to send a ping payload to your *OpenShift* server to ens
 
 Hover your mouse over the check mark to see the status of the last delivery.
 
-![](./img/image16.jpg)
+![](./img/image16.png)
 
 Next time you push a code change to your forked repository, your application will automatically rebuild.
 
@@ -169,7 +169,7 @@ In this section, we demonstrate one of the most powerful features of *OpenShift*
 Once there is a code change, the Github *webhook* will trigger the build of a new container image that combines a blueprint image from the registry with the updated code and generate a new image. This feature is called *S2I*, or source to image. Once the build finishes, *OpenShift* will automatically deploy the new application based on the new image. This capability enables multiple deployment strategies such
 as A/B testing, Rolling upgrades...
 
-![](./img/image17.jpg)
+![](./img/image17.png)
 
 1.  Use Azure cloud shell or install *Git* into your local machine
 
@@ -222,14 +222,14 @@ For example: on line 215, change the title to "Welcome to your Django applicatio
 Now going forward, all you need to do is push code updates and OpenShift handles the rest.
 
 1.  In an *Overview* view you can see your deployment beeing updated.
-![](./img/image19.jpg)
+![](./img/image19.png)
 
 1.  In *Build->Build* view you can see details of your webhook build.
-![](./img/image18.jpg)
+![](./img/image18.png)
 
 1.  From the web browser refresh the page and note the new change
 
-![](./img/image20.jpg)
+![](./img/image20.png)
 
 
 1.  You may find it useful to manually rebuild an image if your *webhook* is not working, or if a build fails and you do not want to change the code before restarting the build. To manually rebuild the image based on your latest committed change to your forked repository:
