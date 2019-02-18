@@ -34,17 +34,17 @@ so if prompted, continue and ignore the browser warning.
 
 ![](./img/image3.png)
 
-1. Log in using your username and password.
+2. Log in using your username and password.
 
 ![](./img/image4.png) 
 
-1. To create a new project, click on blue *Create Project* button.
+3. To create a new project, click on blue *Create Project* button.
 
-1. Type a *unique* name, display name, and description for the new project.
+4. Type a *unique* name, display name, and description for the new project.
 
-1. Click Create. The web console's welcome screen should start loading.
+5. Click Create. The web console's welcome screen should start loading.
 
-1. Click on the project name in right column and examine your fresh project.
+6. Click on the project name in right column and examine your fresh project.
 
 ![](./img/image5.png)
 
@@ -57,13 +57,13 @@ Django Example application as it is quick to build and easy to edit.
 
 1. Login to your *github* account, or create one if you didn't.
 
-1. Browse to *https://github.com/dbecvarik/Kubernetes2OpenShift* repository and fork it into your *github* account
+2. Browse to *https://github.com/dbecvarik/Kubernetes2OpenShift* repository and fork it into your *github* account
 
-1. Download and install the OpenShift CLI related to your operating system. The easiest way to download the CLI is by accessing the About page on the web console if your cluster administrator has enabled the download links. Another alternative is to ssh into your bastion host that has the CLI tool installed already.
+3. Download and install the OpenShift CLI related to your operating system. The easiest way to download the CLI is by accessing the About page on the web console if your cluster administrator has enabled the download links. Another alternative is to ssh into your bastion host that has the CLI tool installed already.
 
 If you don't have a valid Red Hat subscription, you could still download the oc tool from: https://github.com/CCI-MOC/moc-public/wiki/Installing-the-oc-CLI-tool-of-OpenShift
 
-1. Use your openshift url endpoint to login to your environment from the CLI
+4. Use your openshift url endpoint to login to your environment from the CLI
 
 ``` bash
 oc login https://...
@@ -81,7 +81,7 @@ You have one project on this server: "ocupser1"
 Using project "ocupser1".
 ``` 
 
-1. Deploy bookshop application, replace $USER with your github username.
+5. Deploy bookshop application, replace $USER with your github username.
 
 ``` bash
 oc new-app https://github.com/$USER/Kubernetes2OpenShift --context-dir=bookshop --name bookshop
@@ -100,26 +100,24 @@ The Python *pod* then starts up and displays its newly-assigned IP address. When
 
 Pods have a lifecycle; they are defined, then they are assigned to run on a node, then they run until their container(s) exit or they are removed for some other reason. Pods, depending on policy and exit code, may be removed after exiting, or may be retained in order to enable access to the logs of their containers.
 
-1. Make application available by exposing its service
+6. Make application available by exposing its service
 
 ``` bash
 oc expose svc/bookshop
 ```
 
-1. From the overview page, click the web address for the application in the upper right corner. Verify that the web application is up and available.
+7. From the overview page, click the web address for the application in the upper right corner. Verify that the web application is up and available.
 
-![](./img/image11.png)
-
-1. Return to the *OpenShift* admin console. Browse to the project's overview page, and test scaling out and in your application by increasing or decreasing the number of *pods*, using the up and down arrow signs on the web console.
+8. Return to the *OpenShift* admin console. Browse to the project's overview page, and test scaling out and in your application by increasing or decreasing the number of *pods*, using the up and down arrow signs on the web console.
 Scale out the app into 3 pods and watch the progress.
 
 ![](./img/image12.png)
     
-1. Browse to Applications -> Pods, and make sure 3 pods serving the same application are now up and running.
+9. Browse to Applications -> Pods, and make sure 3 pods serving the same application are now up and running.
 
 ![](./img/image13.png)
 
-1. Scale Application back to 1 Pod
+10. Scale Application back to 1 Pod
     
 
 CHALLENGE 3: Configuring automated builds
@@ -131,27 +129,27 @@ To set up a *webhook* for your application:
 
 1. From the Web Console, navigate to the project containing your application.
 
-1. Click the Browse tab, then click Builds -> Builds.
+2. Click the Browse tab, then click Builds -> Builds.
 
-1. Click your build name, then click the Configuration tab.
+3. Click your build name, then click the Configuration tab.
 
-1. Click next to GitHub webhook URL to copy your *webhook* payload URL.
+4. Click next to GitHub webhook URL to copy your *webhook* payload URL.
 
 ![](./img/image14.png)
  
-1. Navigate to your forked repository on GitHub, then click Settings.
+5. Navigate to your forked repository on GitHub, then click Settings.
 
-1. Click Webhooks and Click Add webhook.
+6. Click Webhooks and Click Add webhook.
 
-1. Paste your *webhook* URL into the Payload URL field.
+7. Paste your *webhook* URL into the Payload URL field.
 
-1. As Content Type choose application/json
+8. As Content Type choose application/json
 
-1. Disable SSL verification and click Add webhook to save.
+9. Disable SSL verification and click Add webhook to save.
 
 ![](./img/image15.png)
 
-1. Keep all the other parameters with the default values.
+10. Keep all the other parameters with the default values.
 
 GitHub will now attempt to send a ping payload to your *OpenShift* server to ensure that communication is successful. If you see a green check mark appear next to your *webhook* URL, then it is correctly configured.
 
@@ -177,13 +175,13 @@ as A/B testing, Rolling upgrades...
 mkdir dev && cd dev
 ```
 
-1. Clone the forked repository to your local system
+2. Clone the forked repository to your local system
 
 ```bash
 git clone https://github.com/<YourGithubUsername>/Kubernetes2OpenShift
 ```
 
-1. Make sure your local *git* repository is referencing to your
+3. Make sure your local *git* repository is referencing to your
     *Kubernetes2OpenShift*, on *github*:
 
 ```bash
@@ -194,18 +192,18 @@ cd Kubernetes2OpenShift
 git remote -v
 ```
 
-1. On your local machine, use your preferred text editor to change the sample application's source for the file *bookshop/app.py*
+4. On your local machine, use your preferred text editor to change the sample application's source for the file *bookshop/app.py*
 
 Make a code change that will be visible from within your application.
 For example: on line 11, change the title to "Available Books"
 
-1. Verify the working tree status
+5. Verify the working tree status
 
 ```bash
 git status
 ```
 
-1. Add app.py content to the index, Commit the change in *git*, and push the change to your fork. You will need to authenticate with your *github* credentials
+6. Add app.py content to the index, Commit the change in *git*, and push the change to your fork. You will need to authenticate with your *github* credentials
 
 
 ```bash
@@ -215,21 +213,18 @@ git status
 git push
 ```
 
-1. If your *webhook* is correctly configured, your application will immediately rebuild itself, based on your changes. Monitor the build from the graphical console. Once the rebuild is successful, view your updated application using the route that was created earlier.
+7. If your *webhook* is correctly configured, your application will immediately rebuild itself, based on your changes. Monitor the build from the graphical console. Once the rebuild is successful, view your updated application using the route that was created earlier.
 Now going forward, all you need to do is push code updates and OpenShift handles the rest.
 
-1. In an *Overview* view you can see your deployment beeing updated.
+8. In an *Overview* view you can see your deployment beeing updated.
 ![](./img/image19.png)
 
-1. In *Build->Build* view you can see details of your webhook build.
+9. In *Build->Build* view you can see details of your webhook build.
 ![](./img/image18.png)
 
-1. From the web browser refresh the page and note the new change
+10. From the web browser refresh the page and note the new change
 
-![](./img/image20.png)
-
-
-1. You may find it useful to manually rebuild an image if your *webhook* is not working, or if a build fails and you do not want to change the code before restarting the build. To manually rebuild the image based on your latest committed change to your forked repository:
+11. You may find it useful to manually rebuild an image if your *webhook* is not working, or if a build fails and you do not want to change the code before restarting the build. To manually rebuild the image based on your latest committed change to your forked repository:
 
     a.  Click the Browse tab, then click Builds.
 
