@@ -43,7 +43,9 @@ oc process -f openshift/bookshop.yaml COLOR=green | oc apply -f -
 ```
 
 Finally we need to deploy our pipeline, which is responsible for deploying our
-application and switching master route. To do it, run:
+application and switching master route. To do it, please eddit line 20 in the yaml
+file to contain URL of your fork.
+
 ``` bash
 oc process -f openshift/bookshop.pipeline.yaml | oc apply -f -
 ```
