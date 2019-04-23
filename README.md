@@ -61,7 +61,7 @@ Django Example application as it is quick to build and easy to edit.
 
 3. Download and install the OpenShift CLI related to your operating system. The easiest way to download the CLI is by accessing the About page on the web console if your cluster administrator has enabled the download links. Another alternative is to ssh into your bastion host that has the CLI tool installed already.
 
-If you don't have a valid Red Hat subscription, you could still download the oc tool from: https://github.com/CCI-MOC/moc-public/wiki/Installing-the-oc-CLI-tool-of-OpenShift
+If you don't have a valid Red Hat subscription, you could still download the oc tool from: https://github.com/openshift/origin/releases/tag/v3.11.0
 
 4. Use your openshift url endpoint to login to your environment from the CLI
 
